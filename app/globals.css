@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    touch-action: manipulation;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  input,
+  select {
+    font-size: 16px !important;
+  }
+}
+
+@layer components {
+  .container-responsive {
+    @apply w-full max-w-4xl mx-auto px-4;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-lg p-6 mb-6;
+  }
+
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-8 overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-primary text-white text-sm font-semibold flex items-center justify-center transition-all duration-300;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+    zoom: 0.95 !important;
+    transform-origin: top center !important;
+  }
+
+  .mobile-optimized {
+    @apply w-full max-w-full px-2 text-center;
+  }
+
+  .mobile-text {
+    @apply text-lg leading-relaxed font-medium break-words;
+  }
+}
+
+/* Animações personalizadas */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-custom {
+  animation: pulse 2s infinite;
+}
+
+.loading-spinner {
+  @apply inline-block w-5 h-5 border-2 border-gray-200 border-t-accent rounded-full;
+  animation: spin 1s linear infinite;
+}
